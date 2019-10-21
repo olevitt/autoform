@@ -42,7 +42,7 @@ const ExercicesPage: React.FC<ExercicesPageProps> = ({ match }) => {
 };
 
 const ListItems = exercices => {
-    const items = exercices.map( x: any => {
+    const items = exercices.map( exercice:any => {
     return (
       <IonItem
         routerLink={`/challenges/${challenge.id}/${x.id}`}
