@@ -22,7 +22,19 @@
         },
         {
           "id": "git-1",
-          "name": "Mon premier commit"
+          "name": "Mon premier commit",
+          "exercices": [
+            {
+              "id": "commit-0",
+              "name": "A partir de votre utilitaire de versionning",
+              "description": "Cliquez là puis là puis là, c'est super!"
+            },
+            {
+              "id": "commit-1",
+              "name": "Ajoutez un nouveau fichier a votre projet avec git bash",
+              "description": "Hé oui, vous êtes maintenant des hackeurs avec votre invite de commande héhé:3 :3 :3 "
+            }
+          ]
         }
       ]
     }

@@ -17,6 +17,7 @@ import {
 interface ExercicePageProps
   extends RouteComponentProps<{
     category: string;
+    challengeId: string;
     exerciceId: string;
   }> {}
 
@@ -25,20 +26,17 @@ const Exercice: React.FC<ExercicePageProps> = ({ match }) => {
   const [exercice, setExercice] = useState();
 
   useEffect(() => {
-    const exercice = [
-      {
-        id: "creation-0",
-        name: "Valider un exercice",
-        description: "Ce tutoriel va vous apprendre a valider un exercice"
-      }
-    ];
-    /* data.challenges
+    const exercice = data.challenges
       .filter(e => e.id === match.params.category)
-      .map(function(e) {
+      .map(e => e.tests)
+      .filter(e => e.id === match.params.challengeId)
+      .map(e => e.exercices)
+      .filter(e => e.id === match.params.exerciceId)
+      .filter.map(function(e) {
         return e.tests[parseInt(match.params.category)].exercices;
       })
       .filter(e => e.id === match.params.exerciceId); // potentiellement undefined, je sais pas trop comment faire
-      */
+
     if (exercice.length === 1) {
       setExercice(exercice[0]);
     }

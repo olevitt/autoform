@@ -33,10 +33,10 @@ const ExercicesPage: React.FC = () => {
 };
 
 const ListItems = () => {
-  const items = data.challenges.tests.map(id.map((exercice, i) => {
+  const items = data.challenges.map((challenge, exercice, i) => {
     return (
       <IonItem
-        routerLink={`/exercices/${exercice.id}`}
+        routerLink={`/challenges/${challenge.id}/${exercice.id}`}
         button
         key={exercice.id}
         onClick={e => console.log(e)}

@@ -64,7 +64,12 @@ const App: React.FC = () => (
             exact={true}
           />
           <Route
-            path="/challenges/:category/:exerciceid"
+            path="/challenges/:category/:challengeid"
+            component={Exercice}
+            exact={true}
+          />
+          <Route
+            path="/challenges/:category/:challengeid/:exerciceid"
             component={Exercice}
             exact={true}
           />
