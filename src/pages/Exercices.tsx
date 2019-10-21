@@ -33,7 +33,7 @@ const ExercicesPage: React.FC = () => {
 };
 
 const ListItems = () => {
-  const items = data.challenges.tests.id.map((exercice, i) => {
+  const items = data.challenges.tests.map(id.map((exercice, i) => {
     return (
       <IonItem
         routerLink={`/exercices/${exercice.id}`}
