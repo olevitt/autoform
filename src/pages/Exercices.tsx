@@ -10,7 +10,6 @@ import {
   IonTitle,
   IonToolbar
 } from "@ionic/react";
-import { cafe, gitBranch } from "ionicons/icons";
 import React from "react";
 import data from "../data/challenges.json";
 
@@ -34,12 +33,12 @@ const ExercicesPage: React.FC = () => {
 };
 
 const ListItems = () => {
-  const items = data.exercices.map((exercice, i) => {
+  const items = data.challenges.tests.id.map((exercice, i) => {
     return (
       <IonItem
         routerLink={`/exercices/${exercice.id}`}
         button
-        key={challenge.id}
+        key={exercice.id}
         onClick={e => console.log(e)}
       >
         <IonIcon icon={icons[i]} slot="start" />
