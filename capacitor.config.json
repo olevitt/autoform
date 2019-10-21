@@ -1,0 +1,7 @@
+{
+  "appId": "fr.insee.lab.autoform",
+  "appName": "App",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build"
+}
