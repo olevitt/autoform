@@ -1,0 +1,28 @@
+{
+  "challenges": [
+    {
+      "id": "git",
+      "name": "Git",
+      "tests": [
+        {
+          "id": "git-0",
+          "name": "Créer un dépôt"
+        },
+        {
+          "id": "git-1",
+          "name": "Mon premier commit"
+        }
+      ]
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "tests": [
+        {
+          "id": "java-0",
+          "name": "Hello world"
+        }
+      ]
+    }
+  ]
+}
