@@ -8,6 +8,8 @@ import Menu from "./components/Menu";
 import Home from "./pages/Home";
 import Challenge from "./pages/Challenge";
 import Challenges from "./pages/Challenges";
+import Exercices from "./pages/Exercices";
+import Exercice from "./pages/Exercice";
 import Settings from "./pages/Settings";
 import { home, play, settings } from "ionicons/icons";
 
@@ -59,6 +61,12 @@ const App: React.FC = () => (
           <Route
             path="/challenges/:category"
             component={Challenge}
+            exact={true}
+          />
+          <Route path="/exercices" component={Exercices} exact={true} />
+          <Route
+            path="/exercices/:titre-exercice"
+            component={Exercice}
             exact={true}
           />
           <Route path="/settings" component={Settings} exact={true} />
