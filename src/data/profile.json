@@ -1,0 +1,13 @@
+{
+  "name": "John Doe",
+  "id": "xxxxxx",
+  "challenges": {
+    "git-0": {
+      "completed": 1571687334
+    }
+  },
+  "scm": {
+    "github": "https://github.com/olevitt",
+    "gitlab": "https://gitlab.com/olevitt"
+  }
+}

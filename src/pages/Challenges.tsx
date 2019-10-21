@@ -12,7 +12,7 @@ import {
 } from "@ionic/react";
 import { cafe, gitBranch } from "ionicons/icons";
 import React from "react";
-import data from "../data/challenges.json";
+import dataChallenges from "../data/challenges.json";
 
 const ChallengesPage: React.FC = () => {
   return (
@@ -35,7 +35,7 @@ const ChallengesPage: React.FC = () => {
 
 const ListItems = () => {
   const icons = [gitBranch, cafe];
-  const items = data.challenges.map((challenge, i) => {
+  const items = dataChallenges.challenges.map((challenge, i) => {
     return (
       <IonItem
         routerLink={`/challenges/${challenge.id}`}

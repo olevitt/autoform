@@ -8,12 +8,14 @@ import {
   IonMenuButton,
   IonPage,
   IonTitle,
-  IonToolbar
+  IonToolbar,
+  IonText
 } from "@ionic/react";
 import { trophy } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
 import { RouteComponentProps } from "react-router-dom";
 import data from "../data/challenges.json";
+import dataProfile from "../data/profile.json";
 
 interface ChallengePageProps
   extends RouteComponentProps<{
@@ -46,15 +48,31 @@ const ChallengePage: React.FC<ChallengePageProps> = ({ match }) => {
       <IonContent>
         {challenge ? (
           <IonList>
-            {challenge.tests.map((x: any, i: any) => {
+            {challenge.tests.map((test: any, i: any) => {
               return (
                 <IonItem
-                  routerLink={`/challenges/${challenge.id}/${x.id}`}
+                  routerLink={`/challenges/${challenge.id}/${test.id}`}
                   button
-                  key={x.id}
+                  key={test.id}
                 >
-                  {x.name}
-                  <IonIcon icon={trophy} slot="end" />
+                  {test.name}
+                  {dataProfile.challenges.hasOwnProperty(test.id) ? (
+                    <IonText slot="end" color="success">
+                      {dataProfile.challenges[test.id].completed}
+                    </IonText>
+                  ) : (
+                    <></>
+                  )}
+
+                  <IonIcon
+                    icon={trophy}
+                    slot="end"
+                    color={
+                      dataProfile.challenges.hasOwnProperty(test.id)
+                        ? "success"
+                        : "light"
+                    }
+                  />
                 </IonItem>
               );
             })}

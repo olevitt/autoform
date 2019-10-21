@@ -13,6 +13,16 @@
           "name": "Mon premier commit"
         }
       ]
+    },
+    {
+      "id": "java",
+      "name": "Java",
+      "tests": [
+        {
+          "id": "java-0",
+          "name": "Hello world"
+        }
+      ]
     }
   ]
 }
