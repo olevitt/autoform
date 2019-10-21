@@ -49,7 +49,7 @@ const Exercice: React.FC<ExercicePageProps> = ({ match }) => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>{match.params.category}</IonTitle>
+          <IonTitle>{match.params.exerciceId}</IonTitle>
         </IonToolbar>
       </IonHeader>
 

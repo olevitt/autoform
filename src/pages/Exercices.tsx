@@ -10,10 +10,19 @@ import {
   IonTitle,
   IonToolbar
 } from "@ionic/react";
-import React from "react";
+import React, { useState } from "react";
 import data from "../data/challenges.json";
+import { RouteComponentProps } from "react-router-dom";
 
-const ExercicesPage: React.FC = () => {
+interface ExercicesPageProps
+  extends RouteComponentProps<{
+    category: string;
+    challengeId: string;
+  }> {}
+
+const ExercicesPage: React.FC<ExercicesPageProps> = ({ match }) => {
+  const [exercices, setExercices] = useState();
+
   return (
     <IonPage>
       <IonHeader>
@@ -21,22 +30,22 @@ const ExercicesPage: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Exercices</IonTitle>
+          <IonTitle>{match.params.challengeId}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent>
-        <ListItems />
+        {exercices ? ListItems(exercices) : <>Loading ...</>}
       </IonContent>
     </IonPage>
   );
 };
 
-const ListItems = () => {
-  const items = data.challenges.map((challenge, exercice, i) => {
+const ListItems = exercices => {
+    const items = exercices.map( x: any => {
     return (
       <IonItem
-        routerLink={`/challenges/${challenge.id}/${exercice.id}`}
+        routerLink={`/challenges/${challenge.id}/${x.id}`}
         button
         key={exercice.id}
         onClick={e => console.log(e)}
