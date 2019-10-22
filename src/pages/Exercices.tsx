@@ -10,7 +10,7 @@ import {
   IonTitle,
   IonToolbar
 } from "@ionic/react";
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import data from "../data/challenges.json";
 import { RouteComponentProps } from "react-router-dom";
 
@@ -22,6 +22,15 @@ interface ExercicesPageProps
 
 const ExercicesPage: React.FC<ExercicesPageProps> = ({ match }) => {
   const [exercices, setExercices] = useState();
+
+  useEffect(() => {
+    const exercices = data.challenges.filter(
+      e => e.id === match.params.category
+    ).map(e=> e.tests.filter(e=> e.id ===match.params.challengeId));
+    if (exercices.length === 1) {
+      setExercices(exercices[0]);
+    }
+  }, [match]);
 
   return (
     <IonPage>
