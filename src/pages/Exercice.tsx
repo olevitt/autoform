@@ -28,10 +28,10 @@ const Exercice: React.FC<ExercicePageProps> = ({ match }) => {
   useEffect(() => {
     const exercice = data.challenges
     .filter(e=>e.id === match.params.category)
-    .map(e=> e.tests.filter(e => e.id === match.params.idChallenge))
-    .map(e=> e[0].exercices.filter(e => e.id=== match.params.exerciceId));
+    .map(e=> e.tests.filter(e => e.id === match.params.idChallenge)
+    .map(e => e.exercices.filter(e => e.id === match.params.exerciceId)));
     if (exercice.length === 1) {
-      setExercice(exercice[0]);
+      setExercice(exercice);
     }
   }, [match]);
 
@@ -42,12 +42,12 @@ const Exercice: React.FC<ExercicePageProps> = ({ match }) => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>{match.params.exerciceId}</IonTitle>
+          <IonTitle>Exercice</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent>
-        {exercice ? <div>{exercice.name}</div> : <>Loading ...</>}
+        {exercice ? <div> {exercice.description}</div> : <>Loading ...</>}
       </IonContent>
     </IonPage>
   );
