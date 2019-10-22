@@ -54,12 +54,12 @@ const ListItems = (category: string,idChallenge:string) => {
     const items = data.challenges.filter(e=>e.id === category).map(e=> e.tests.filter(e => e.id === idChallenge).map(e => e.exercices).map( exercice => {
     return (
       <IonItem
-        routerLink={`/challenges/${category}/${idChallenge}/${exercice[0].id}`}
+        routerLink={`/challenges/${category}/${idChallenge}/${exercice[1].id}`}
         button
-        key={exercice[0].id}
+        key={exercice[1].id}
         onClick={e => console.log(e)}
       >
-        yes
+        {exercice[1].id}
       </IonItem>
     );
   }));
