@@ -35,29 +35,25 @@ const ExercicesPage: React.FC<ExercicesPageProps> = ({ match }) => {
       </IonHeader>
 
       <IonContent>
-        {exercices ? ListItems(exercices) : <>Loading ...</>}
+  {exercices ? <>{ListItems(match.params.category,match.params.challengeId)}</> : <>Loading ...</>}
       </IonContent>
     </IonPage>
   );
 };
 
-const ListItems = exercices => {
-    const items = exercices.map( exercice:any => {
+const ListItems = (category: string,idChallenge:string) => {
+    const items = data.challenges.filter(e=>e.id === category).map(e=> e.tests.filter(e => e.id === idChallenge).map(e => e.exercices).map( exercice => {
     return (
       <IonItem
-        routerLink={`/challenges/${challenge.id}/${x.id}`}
+        routerLink={`/challenges/${category}/${idChallenge}/${exercice.id}`}
         button
         key={exercice.id}
         onClick={e => console.log(e)}
       >
-        <IonIcon icon={icons[i]} slot="start" />
-        {challenge.name}
-        <div className="item-note" slot="end">
-          0 / {challenge.tests.length}
-        </div>
+        yes
       </IonItem>
     );
-  });
+  }));
 
   return <IonList>{items}</IonList>;
 };

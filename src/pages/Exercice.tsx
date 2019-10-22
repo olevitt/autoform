@@ -28,13 +28,7 @@ const Exercice: React.FC<ExercicePageProps> = ({ match }) => {
   useEffect(() => {
     const exercice = data.challenges
       .filter(e => e.id === match.params.category)
-      .map(e => e.tests)
-      .filter(e => e.id === match.params.challengeId)
-      .map(e => e.exercices)
-      .filter(e => e.id === match.params.exerciceId)
-      .filter.map(function(e) {
-        return e.tests[parseInt(match.params.category)].exercices;
-      })
+      .map( e => e.filter(e => e.id === match.params.category)e => e.tests.filter(e => e.map(e => e.exercices.filter(e => e.id === match.params.challengeId))
       .filter(e => e.id === match.params.exerciceId); // potentiellement undefined, je sais pas trop comment faire
 
     if (exercice.length === 1) {
