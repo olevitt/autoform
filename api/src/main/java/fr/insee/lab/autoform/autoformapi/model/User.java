@@ -1,13 +1,14 @@
 package fr.insee.lab.autoform.autoformapi.model;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class User {
 
     private String name;
     private String id;
-    private Map<String,ChallengeResult> challenges;
-    private Map<String,String> scm;
+    private Map<String,ChallengeResult> challenges = new HashMap<>();
+    private Map<String,String> scm = new HashMap<>();
 
     public String getName() {
         return name;
