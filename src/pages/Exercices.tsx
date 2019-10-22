@@ -51,18 +51,18 @@ const ExercicesPage: React.FC<ExercicesPageProps> = ({ match }) => {
 };
 
 const ListItems = (category: string,idChallenge:string) => {
-    const items = data.challenges.filter(e=>e.id === category).map(e=> e.tests.filter(e => e.id === idChallenge).map(e => e.exercices).map( exercice => {
+    const items = data.challenges.filter(e=>e.id === category).map(e=> e.tests.filter(e => e.id === idChallenge).map(e => e.exercices.map( e => {
     return (
       <IonItem
-        routerLink={`/challenges/${category}/${idChallenge}/${exercice[1].id}`}
+        routerLink={`/challenges/${category}/${idChallenge}/${e.id}`}
         button
-        key={exercice[1].id}
+        key={e.id}
         onClick={e => console.log(e)}
       >
-        {exercice[1].id}
+        {e.id}
       </IonItem>
     );
-  }));
+  })));
 
   return <IonList>{items}</IonList>;
 };

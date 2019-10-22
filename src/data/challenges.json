@@ -17,13 +17,7 @@
               "id": "creation-1",
               "name": "Choisir où créer son dépot",
               "description": "Ce tutoriel va vous apprendre a valider un exercice"
-            },
-            {
-              "id": "creation-1",
-              "name": "Choisir où créer son dépot",
-              "description": "Ce tutoriel va vous apprendre a valider un exercice"
-            }
-          ]
+            }]
         },
         {
           "id": "git-1",
