@@ -30,6 +30,16 @@ import "@ionic/react/css/display.css";
 /* Theme variables */
 import "./theme/variables.css";
 
+import { Plugins } from "@capacitor/core";
+
+Plugins.App.addListener("backButton", (data: any) => {
+  if (window.location.pathname === "/home") {
+    Plugins.App.exitApp();
+  } else {
+    window.history.back();
+  }
+});
+
 const appPages: AppPage[] = [
   {
     title: "Home",
