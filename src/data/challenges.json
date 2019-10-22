@@ -7,16 +7,12 @@
         {
           "id": "git-0",
           "name": "Créer un dépôt",
-          "exercices": [
-            {
-              "id": "creation-0",
-              "name": "Valider un exercice",
-              "description": "Ce tutoriel va vous apprendre a valider un exercice"
-            },
+          "exercice": [
             {
               "id": "creation-1",
-              "name": "Choisir où créer son dépot",
-              "description": "Ce tutoriel va vous apprendre a valider un exercice"
+              "name": "Création d'un dépot",
+              "description": "Ce tutoriel va vous apprendre a valider un exercice",
+              "api":"/hello-world"
             }]
         },
         {

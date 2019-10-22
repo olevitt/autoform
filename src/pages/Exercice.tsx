@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import data from "../data/challenges.json";
-import { RouteComponentProps } from "react-router-dom";
 import {
   IonButtons,
   IonContent,
   IonHeader,
+  IonSkeletonText,
   IonIcon,
   IonItem,
   IonList,
@@ -13,25 +11,25 @@ import {
   IonTitle,
   IonToolbar
 } from "@ionic/react";
+import React, { useEffect,useState } from "react";
+import data from "../data/challenges.json";
+import { RouteComponentProps } from "react-router-dom";
 
 interface ExercicePageProps
   extends RouteComponentProps<{
     category: string;
-    idChallenge: string;
-    exerciceId: string;
+    challengeId: string;
   }> {}
 
-const Exercice: React.FC<ExercicePageProps> = ({ match }) => {
-  const [valide, setValide] = useState();
+const ExercicePage: React.FC<ExercicePageProps> = ({ match }) => {
   const [exercice, setExercice] = useState();
 
   useEffect(() => {
-    const exercice = data.challenges
-    .filter(e=>e.id === match.params.category)
-    .map(e=> e.tests.filter(e => e.id === match.params.idChallenge)
-    .map(e => e.exercices.filter(e => e.id === match.params.exerciceId)));
+    const exercice = data.challenges.filter(
+      e => e.id === match.params.category
+    ).map(e=> e.tests.filter(e=> e.id ===match.params.challengeId));
     if (exercice.length === 1) {
-      setExercice(exercice);
+      setExercice(exercice[0]);
     }
   }, [match]);
 
@@ -42,15 +40,16 @@ const Exercice: React.FC<ExercicePageProps> = ({ match }) => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>Exercice</IonTitle>
+          <IonTitle>{match.params.challengeId}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent>
-        {exercice ? <div> {exercice.description}</div> : <>Loading ...</>}
+  {exercice ? <>{exercice.id}</> : <><IonSkeletonText animated style={{ width: '60%' }} /></>}
       </IonContent>
     </IonPage>
   );
 };
 
-export default Exercice;
+
+export default ExercicePage;
