@@ -9,26 +9,23 @@
           "name": "Créer un dépôt",
           "exercice": [
             {
-              "id": "creation-1",
+              "id": "creation",
               "name": "Création d'un dépot",
               "description": "Ce tutoriel va vous apprendre a valider un exercice",
-              "api":"/hello-world"
-            }]
+              "validation-api":"/hello-world"
+            } ]
         },
         {
           "id": "git-1",
           "name": "Mon premier commit",
-          "exercices": [
+          "exercice": [
             {
-              "id": "commit-0",
+              "id": "commit",
               "name": "A partir de votre utilitaire de versionning",
-              "description": "Cliquez là puis là puis là, c'est super!"
-            },
-            {
-              "id": "commit-1",
-              "name": "Ajoutez un nouveau fichier a votre projet avec git bash",
-              "description": "Hé oui, vous êtes maintenant des hackeurs avec votre invite de commande héhé:3 :3 :3 "
+              "description": "Cliquez là puis là puis là, c'est super!",
+              "validation-api":"/hello-world"
             }
+            
           ]
         }
       ]

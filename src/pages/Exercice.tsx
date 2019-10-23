@@ -2,12 +2,13 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonSkeletonText,
-  IonIcon,
   IonItem,
-  IonList,
+  IonLabel,
+  IonButton,
+  IonSkeletonText,
   IonMenuButton,
   IonPage,
+  IonSlide,
   IonTitle,
   IonToolbar
 } from "@ionic/react";
@@ -27,7 +28,9 @@ const ExercicePage: React.FC<ExercicePageProps> = ({ match }) => {
   useEffect(() => {
     const exercice = data.challenges.filter(
       e => e.id === match.params.category
-    ).map(e=> e.tests.filter(e=> e.id ===match.params.challengeId));
+    )
+    .map(e=> e.tests.filter(e=> e.id ===match.params.challengeId))
+    .map(e=> e[0].exercice[0]);
     if (exercice.length === 1) {
       setExercice(exercice[0]);
     }
@@ -40,12 +43,14 @@ const ExercicePage: React.FC<ExercicePageProps> = ({ match }) => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>{match.params.challengeId}</IonTitle>
+          <IonTitle>{match.params.category}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent>
-  {exercice ? <>{exercice.id}</> : <><IonSkeletonText animated style={{ width: '60%' }} /></>}
+  {exercice ? <><IonItem color="primary">
+          <IonLabel>{exercice.id}</IonLabel>
+  </IonItem><IonSlide><p>{exercice.description}</p><IonButton >Valider</IonButton></IonSlide></> : <><IonSkeletonText animated style={{ width: '60%' }} /></>}
       </IonContent>
     </IonPage>
   );
