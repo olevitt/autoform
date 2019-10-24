@@ -12,8 +12,9 @@
               "id": "creation",
               "name": "Création d'un dépot",
               "description": "Ce tutoriel va vous apprendre a valider un exercice",
-              "validation-api":"/hello-world"
-            } ]
+              "validation-api": "/hello-world"
+            }
+          ]
         },
         {
           "id": "git-1",
@@ -23,9 +24,8 @@
               "id": "commit",
               "name": "A partir de votre utilitaire de versionning",
               "description": "Cliquez là puis là puis là, c'est super!",
-              "validation-api":"/hello-world"
+              "validation-api": "/hello-world"
             }
-            
           ]
         }
       ]
@@ -36,7 +36,15 @@
       "tests": [
         {
           "id": "java-0",
-          "name": "Hello world"
+          "name": "Hello world",
+          "exercice": [
+            {
+              "id": "commit",
+              "name": "A partir de votre utilitaire de versionning",
+              "description": "Cliquez là puis là puis là, c'est super!",
+              "validation-api": "/hello-world"
+            }
+          ]
         }
       ]
     }
