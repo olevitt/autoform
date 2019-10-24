@@ -6,11 +6,27 @@
       "tests": [
         {
           "id": "git-0",
-          "name": "Créer un dépôt"
+          "name": "Créer un dépôt",
+          "exercice": [
+            {
+              "id": "creation",
+              "name": "Création d'un dépot",
+              "description": "Ce tutoriel va vous apprendre a valider un exercice",
+              "validation-api":"/hello-world"
+            } ]
         },
         {
           "id": "git-1",
-          "name": "Mon premier commit"
+          "name": "Mon premier commit",
+          "exercice": [
+            {
+              "id": "commit",
+              "name": "A partir de votre utilitaire de versionning",
+              "description": "Cliquez là puis là puis là, c'est super!",
+              "validation-api":"/hello-world"
+            }
+            
+          ]
         }
       ]
     },
