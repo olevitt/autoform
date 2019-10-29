@@ -12,9 +12,10 @@ import {
   IonTitle,
   IonToolbar
 } from "@ionic/react";
-import React, { useEffect,useState } from "react";
+import React, { useEffect, useState } from "react";
 import data from "../data/challenges.json";
 import { RouteComponentProps } from "react-router-dom";
+import { Test } from "../model/Challenge";
 
 interface ExercicePageProps
   extends RouteComponentProps<{
@@ -23,16 +24,13 @@ interface ExercicePageProps
   }> {}
 
 const ExercicePage: React.FC<ExercicePageProps> = ({ match }) => {
-  const [exercice, setExercice] = useState();
+  const [test, setTest] = useState<Test>();
 
   useEffect(() => {
-    const exercice = data.challenges.filter(
-      e => e.id === match.params.category
-    )
-    .map(e=> e.tests.filter(e=> e.id ===match.params.challengeId))
-    .map(e=> e[0].exercice[0]);
-    if (exercice.length === 1) {
-      setExercice(exercice[0]);
+    const category = data.challenges.find(e => e.id === match.params.category);
+    if (category) {
+      const test = category.tests.find(e => e.id === match.params.challengeId);
+      setTest(test);
     }
   }, [match]);
 
@@ -48,13 +46,24 @@ const ExercicePage: React.FC<ExercicePageProps> = ({ match }) => {
       </IonHeader>
 
       <IonContent>
-  {exercice ? <><IonItem color="primary">
-          <IonLabel>{exercice.id}</IonLabel>
-  </IonItem><IonSlide><p>{exercice.description}</p><IonButton >Valider</IonButton></IonSlide></> : <><IonSkeletonText animated style={{ width: '60%' }} /></>}
+        {test ? (
+          <>
+            <IonItem color="primary">
+              <IonLabel>{test.id}</IonLabel>
+            </IonItem>
+            <IonSlide>
+              <p>{test.exercice.description}</p>
+              <IonButton>Valider</IonButton>
+            </IonSlide>
+          </>
+        ) : (
+          <>
+            <IonSkeletonText animated style={{ width: "60%" }} />
+          </>
+        )}
       </IonContent>
     </IonPage>
   );
 };
-
 
 export default ExercicePage;
