@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { IonApp, IonRouterOutlet, IonSplitPane } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { AppPage } from "./declarations";
@@ -78,7 +78,7 @@ const App: React.FC = () => (
             exact={true}
           />
           <Route path="/settings" component={Settings} exact={true} />
-          <Route path="/" render={() => <Redirect to="/home" exact={true} />} />
+          <Route path="/" component={Home} />
         </IonRouterOutlet>
       </IonSplitPane>
     </IonReactRouter>
