@@ -8,14 +8,20 @@
           "id": "git-0",
           "name": "Créer un dépôt",
           "exercice": {
-            "description": "Ce tutoriel va vous apprendre a valider un exercice"
+            "description": "Pour créer un **dépôt**, il faut ...  \n 1. Toto  \n 2. Tata  ",
+            "validation": {
+              "goalText": "Créer un dépôt GIT avec le nom `autoform`"
+            }
           }
         },
         {
           "id": "git-1",
           "name": "Mon premier commit",
           "exercice": {
-            "description": "Cliquez là puis là puis là, c'est super!"
+            "description": "Cliquez là puis là puis là, c'est super!",
+            "validation": {
+              "goalText": "Créer un dépôt GIT avec le nom autoform"
+            }
           }
         }
       ]
@@ -28,7 +34,10 @@
           "id": "java-0",
           "name": "Hello world",
           "exercice": {
-            "description": "Cliquez là puis là puis là, c'est super!"
+            "description": "Cliquez là puis là puis là, c'est super!",
+            "validation": {
+              "goalText": "Créer un dépôt GIT avec le nom autoform"
+            }
           }
         }
       ]

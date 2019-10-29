@@ -8,14 +8,18 @@ import {
   IonSkeletonText,
   IonMenuButton,
   IonPage,
-  IonSlide,
   IonTitle,
-  IonToolbar
+  IonToolbar,
+  IonText,
+  IonFooter,
+  IonCardContent,
+  IonCardHeader
 } from "@ionic/react";
 import React, { useEffect, useState } from "react";
 import data from "../data/challenges.json";
 import { RouteComponentProps } from "react-router-dom";
 import { Test } from "../model/Challenge";
+import ReactMarkdown from "react-markdown";
 
 interface ExercicePageProps
   extends RouteComponentProps<{
@@ -49,12 +53,18 @@ const ExercicePage: React.FC<ExercicePageProps> = ({ match }) => {
         {test ? (
           <>
             <IonItem color="primary">
-              <IonLabel>{test.id}</IonLabel>
+              <IonLabel>{test.name}</IonLabel>
             </IonItem>
-            <IonSlide>
-              <p>{test.exercice.description}</p>
-              <IonButton>Valider</IonButton>
-            </IonSlide>
+
+            <IonCardHeader>
+              <img src="http://placekitten.com/g/200/300" alt="kitten"></img>
+            </IonCardHeader>
+            <IonCardContent>
+              <IonText>
+                <ReactMarkdown source={test.exercice.description} />
+              </IonText>
+              <br />
+            </IonCardContent>
           </>
         ) : (
           <>
@@ -62,6 +72,25 @@ const ExercicePage: React.FC<ExercicePageProps> = ({ match }) => {
           </>
         )}
       </IonContent>
+      <IonFooter>
+        {test ? (
+          <>
+            <IonItem color="light">
+              <IonLabel>Pour valider cet exercice</IonLabel>
+            </IonItem>
+            <IonText>
+              <p>
+                <ReactMarkdown source={test.exercice.validation.goalText} />
+              </p>
+            </IonText>
+            <IonButton>J'ai fini !</IonButton>
+          </>
+        ) : (
+          <>
+            <IonSkeletonText animated style={{ width: "60%" }} />
+          </>
+        )}
+      </IonFooter>
     </IonPage>
   );
 };

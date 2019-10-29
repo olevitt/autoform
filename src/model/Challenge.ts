@@ -1,5 +1,10 @@
+export interface Validation {
+  goalText: string;
+}
+
 export interface Exercice {
   description: string;
+  validation: Validation;
 }
 
 export interface Test {
