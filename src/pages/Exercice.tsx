@@ -57,7 +57,7 @@ const ExercicePage: React.FC<ExercicePageProps> = ({ match }) => {
             </IonItem>
 
             <IonCardHeader>
-              <img src="http://placekitten.com/g/200/300" alt="kitten"></img>
+              <img src="https://placekitten.com/g/200/300" alt="kitten"></img>
             </IonCardHeader>
             <IonCardContent>
               <IonText>
