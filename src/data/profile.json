@@ -6,8 +6,16 @@
       "completed": 1571687334
     }
   },
-  "scm": {
-    "github": "https://github.com/olevitt",
-    "gitlab": "https://gitlab.com/olevitt"
-  }
+  "scm": [
+    {
+      "provider": "github",
+      "baseUrl": "https://github.com",
+      "id": "olevitt"
+    },
+    {
+      "provider": "gitlab",
+      "baseUrl": "https://gitlab.com",
+      "id": "olevitt"
+    }
+  ]
 }

@@ -1,6 +1,5 @@
 import {
   IonButtons,
-  IonToggle,
   IonContent,
   IonHeader,
   IonItem,
@@ -13,7 +12,8 @@ import {
   IonListHeader,
   IonChip,
   IonAvatar,
-  IonIcon
+  IonIcon,
+  IonButton
 } from "@ionic/react";
 
 import React from "react";
@@ -21,11 +21,9 @@ import "./Home.css";
 import dataProfile from "../data/profile.json";
 import icongithub from "../assets/img/logo-github.svg";
 import icongitlab from "../assets/img/logo-gitlab.svg";
+import { trash, addCircle } from "ionicons/icons";
 
 const HomePage: React.FC = () => {
-  const github = dataProfile.scm.github;
-  const gitlab = dataProfile.scm.gitlab;
-
   return (
     <IonPage>
       <IonHeader>
@@ -54,32 +52,28 @@ const HomePage: React.FC = () => {
             <IonLabel>Sources</IonLabel>
           </IonListHeader>
 
-          <IonItem>
-            <IonIcon icon={icongitlab}>Gitlab</IonIcon>
-            <IonLabel>
-              {"   "}
-              {gitlab ? <a href={gitlab}>{gitlab}</a> : ""}
-            </IonLabel>
-            <IonToggle
-              checked={github ? true : false}
-              value="gitlab"
-              onChange={() => {}}
-            />
-          </IonItem>
-
-          <IonItem>
-            <IonIcon icon={icongithub}>Github</IonIcon>
-            <IonLabel>
-              {"   "}
-              {github ? <a href={github}>{github}</a> : ""}
-            </IonLabel>
-            <IonToggle
-              checked={github ? true : false}
-              value="github"
-              onChange={() => {}}
-            />
-          </IonItem>
+          {dataProfile.scm.map((scm, index) => {
+            return (
+              <IonItem>
+                <IonIcon
+                  icon={scm.provider === "github" ? icongithub : icongitlab}
+                ></IonIcon>
+                <IonLabel>
+                  <a href={scm.baseUrl}>
+                    {scm.id} ({scm.baseUrl})
+                  </a>
+                </IonLabel>
+                <IonButton color="danger">
+                  <IonIcon slot="icon-only" icon={trash} />
+                </IonButton>
+              </IonItem>
+            );
+          })}
         </IonList>
+
+        <IonButton color="primary" style={{ marginLeft: "20px" }}>
+          <IonIcon slot="icon-only" icon={addCircle} />
+        </IonButton>
       </IonContent>
     </IonPage>
   );
